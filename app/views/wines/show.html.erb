@@ -3,6 +3,13 @@
 <p>
   <strong>Name:</strong>
   <%= @wine.name %>
+
+  <strong>Strains:</strong>
+    <% @wine.blends.each do |blend| %>
+      <ul>
+        <li><%= "#{blend.strain} (#{blend.percent}%)"%></li>
+      </ul>
+    <% end %>
 </p>
 
 <%= link_to 'Edit', edit_wine_path(@wine) %> |

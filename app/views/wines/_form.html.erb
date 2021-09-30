@@ -11,7 +11,8 @@
     </div>
   <% end %>
 
-  <div class="field">
+
+  <div class="field mb-4">
     <%= form.label :name %>
     <%= form.text_field :name, autofocus: true%>
   </div>
@@ -20,14 +21,14 @@
   <div class="field">
     <%= form.fields_for :blends do |ff|%>
       <%= render 'blend_fields', f: ff %>
-      <div>
         <%# Cocoon helper %>
-        <%= link_to_add_association 'add strain', form, :blends %>
-      </div>
+        <%= link_to_add_association 'Add new strain', form, :blends, class:'btn btn-primary' %>
     <% end %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-3">
+    <%= form.submit :Submit, class: "btn btn-success"%>
   </div>
+
+
 <% end %>

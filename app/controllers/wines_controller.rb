@@ -5,7 +5,6 @@ class WinesController < ApplicationController
   # GET /wines or /wines.json
   def index
     @wines = Wine.all
-
   end
 
   # GET /wines/1 or /wines/1.json
