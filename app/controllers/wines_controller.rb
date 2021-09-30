@@ -1,9 +1,11 @@
 class WinesController < ApplicationController
   before_action :set_wine, only: %i[ show edit update destroy ]
-
+  before_action :set_strains, only: %i[ new edit ]
+  
   # GET /wines or /wines.json
   def index
     @wines = Wine.all
+
   end
 
   # GET /wines/1 or /wines/1.json
@@ -13,6 +15,7 @@ class WinesController < ApplicationController
   # GET /wines/new
   def new
     @wine = Wine.new
+    @wine.blends.build
   end
 
   # GET /wines/1/edit
@@ -62,8 +65,13 @@ class WinesController < ApplicationController
       @wine = Wine.find(params[:id])
     end
 
+    #Set collection of strains
+    def set_strains
+      @strains = Strain.all
+    end
+
     # Only allow a list of trusted parameters through.
     def wine_params
-      params.require(:wine).permit(:name)
+      params.require(:wine).permit(:name, blends_attributes: [:id, :strain_id, :percent, :_destroy])
     end
 end

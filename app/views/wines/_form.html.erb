@@ -13,7 +13,18 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, autofocus: true%>
+  </div>
+  
+  <%# Nested form for blends attributes %>
+  <div class="field">
+    <%= form.fields_for :blends do |ff|%>
+      <%= render 'blend_fields', f: ff %>
+      <div>
+        <%# Cocoon helper %>
+        <%= link_to_add_association 'add strain', form, :blends %>
+      </div>
+    <% end %>
   </div>
 
   <div class="actions">
