@@ -3,9 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.3'
 
+#for nested forms
 gem "cocoon"
 gem "jquery-rails"
+
+#for styling
 gem 'bootstrap', '~> 4.6.0'
+
+#for sessions
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
