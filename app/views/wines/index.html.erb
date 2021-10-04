@@ -16,11 +16,11 @@
       <tr>
         <td><%= wine.name %></td>
         <td>
-          <% wine.blends.each do |blend| %>
-            <ul>
-              <li><%= "#{blend.strain} (#{blend.percent}%)"%>
-            </ul>
-          <% end %>
+          <ul>
+            <% wine.sorted_strains.each do |strain| %>
+              <li><%= strain %></li>
+            <% end %>
+          </ul>
         </td>
 
         <td><%= link_to 'Show', wine %></td>
@@ -33,4 +33,4 @@
 
 <br>
 
-<%= link_to 'New Wine', new_wine_path, class:"btn btn-success" %>
+<%= link_to 'New Wine', new_wine_path, class:"btn btn-primary" %>

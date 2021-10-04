@@ -4,7 +4,7 @@ class WinesController < ApplicationController
   
   # GET /wines or /wines.json
   def index
-    @wines = Wine.all
+    @wines = Wine.includes(:blends, :strains).order(name: :asc)
   end
 
   # GET /wines/1 or /wines/1.json
@@ -14,6 +14,7 @@ class WinesController < ApplicationController
   # GET /wines/new
   def new
     @wine = Wine.new
+    @strains = Strain.all
     @wine.blends.build
   end
 
