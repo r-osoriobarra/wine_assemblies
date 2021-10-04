@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Strain.destroy_all
+
+Strain.create(name: 'Sauvignon blanc')
+Strain.create(name: 'Chardonnay')
+Strain.create(name: 'Cabernet Sauvignon')
+Strain.create(name: 'Merlot')
+Strain.create(name: 'Carmenere')
+Strain.create(name: 'Syrah')
+Strain.create(name: 'Pinot Noir')
