@@ -24,8 +24,10 @@
         </td>
 
         <td><%= link_to 'Show', wine %></td>
-        <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
-        <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_admin.present? %>
+          <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
+          <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -33,4 +35,7 @@
 
 <br>
 
-<%= link_to 'New Wine', new_wine_path, class:"btn btn-primary" %>
+<%= link_to 'New Wine', new_wine_path, class:"btn btn-primary mb-4" if current_admin %>
+<%= link_to 'Strain list', strains_path, class:"btn btn-primary mb-4" if current_admin %>
+
+

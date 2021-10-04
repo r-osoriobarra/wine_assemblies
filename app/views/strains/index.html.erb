@@ -13,10 +13,11 @@
   <tbody>
     <% @strains.each do |strain| %>
       <tr>
-        <td><%= strain.name %></td>
-        <td><%= link_to 'Show', strain %></td>
-        <td><%= link_to 'Edit', edit_strain_path(strain) %></td>
-        <td><%= link_to 'Destroy', strain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><li><%= strain.name %></li></td>
+        <% if current_admin %>
+          <td><%= link_to 'Edit', edit_strain_path(strain) %></td>
+          <td><%= link_to 'Destroy', strain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Strain', new_strain_path, class:"btn btn-primary" %>
+<%= link_to 'New Strain', new_strain_path, class:"btn btn-primary mb-4" if current_admin %>
