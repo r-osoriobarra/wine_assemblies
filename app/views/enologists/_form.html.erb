@@ -1,0 +1,41 @@
+<%= form_with(model: enologist, local: true) do |form| %>
+  <% if enologist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(enologist.errors.count, "error") %> prohibited this enologist from being saved:</h2>
+
+      <ul>
+      <% enologist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: 'font-weight-bold'%>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age, class: 'font-weight-bold' %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nationality, class: 'font-weight-bold' %>
+    <%= form.text_field :nationality %>
+  </div>
+
+  <%# Nested form for blends attributes %>
+  <div class="field">
+    <%= form.fields_for :enologist_magazines do |ff|%>
+      <%= render 'enologist_magazine_fields', f: ff %> <br>
+        <%# Cocoon helper %>
+        <%= link_to_add_association 'Add magazine', form, :enologist_magazines %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

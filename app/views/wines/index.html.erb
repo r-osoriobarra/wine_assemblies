@@ -2,6 +2,12 @@
 
 <h1>Peter Wine List</h1>
 
+<% if current_admin %>
+  <%= link_to 'New Wine', new_wine_path, class:"btn btn-primary mb-4 text-light" %>
+  <%= link_to 'Strain list', strains_path, class:"btn btn-primary mb-4 text-light" %>
+  <%= link_to 'Enologist list', enologists_path, class:"btn btn-primary mb-4 text-light" %>
+<% end %>
+
 <table class="table">
   <thead>
     <tr>
@@ -35,7 +41,5 @@
 
 <br>
 
-<%= link_to 'New Wine', new_wine_path, class:"btn btn-primary mb-4" if current_admin %>
-<%= link_to 'Strain list', strains_path, class:"btn btn-primary mb-4" if current_admin %>
 
 

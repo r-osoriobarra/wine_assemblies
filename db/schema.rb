@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_04_190838) do
+ActiveRecord::Schema.define(version: 2021_10_05_163922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,32 @@ ActiveRecord::Schema.define(version: 2021_10_04_190838) do
     t.datetime "updated_at", null: false
     t.index ["strain_id"], name: "index_blends_on_strain_id"
     t.index ["wine_id"], name: "index_blends_on_wine_id"
+  end
+
+  create_table "enologist_magazines", force: :cascade do |t|
+    t.boolean "editor"
+    t.boolean "writer"
+    t.boolean "reviewer"
+    t.bigint "enologist_id"
+    t.bigint "magazine_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["enologist_id"], name: "index_enologist_magazines_on_enologist_id"
+    t.index ["magazine_id"], name: "index_enologist_magazines_on_magazine_id"
+  end
+
+  create_table "enologists", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.string "nationality"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "magazines", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "strains", force: :cascade do |t|
@@ -63,4 +89,6 @@ ActiveRecord::Schema.define(version: 2021_10_04_190838) do
 
   add_foreign_key "blends", "strains"
   add_foreign_key "blends", "wines"
+  add_foreign_key "enologist_magazines", "enologists"
+  add_foreign_key "enologist_magazines", "magazines"
 end

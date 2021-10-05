@@ -6,8 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#destroy all
 Strain.destroy_all
+User.destroy_all
+Admin.destroy_all
+Magazine.destroy_all
 
+#Users
+User.create(email: 'test@mail.com', password: '123123', password_confirmation: '123123')
+Admin.create(email: 'peter@mail.com', password: '123123', password_confirmation: '123123')
+
+#Strains
 Strain.create(name: 'Sauvignon blanc')
 Strain.create(name: 'Chardonnay')
 Strain.create(name: 'Cabernet Sauvignon')
@@ -15,3 +24,8 @@ Strain.create(name: 'Merlot')
 Strain.create(name: 'Carmenere')
 Strain.create(name: 'Syrah')
 Strain.create(name: 'Pinot Noir')
+
+#Magazines
+Magazine.create(name: 'La petaquita')
+Magazine.create(name: 'Wines&Cheese')
+Magazine.create(name: 'Combinado Internacional')
