@@ -19,6 +19,7 @@ class EnologistsController < ApplicationController
 
   # GET /enologists/1/edit
   def edit
+    @magazines = Magazine.all
   end
 
   # POST /enologists or /enologists.json
