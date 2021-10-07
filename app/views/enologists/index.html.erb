@@ -31,9 +31,11 @@
             <li><%= role %></li>
           <% end %>
         </td>
-        <td><%= link_to 'Show', enologist %></td>
-        <td><%= link_to 'Edit', edit_enologist_path(enologist) %></td>
-        <td><%= link_to 'Destroy', enologist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_admin.present? %>
+          <td><%= link_to 'Show', enologist %></td>
+          <td><%= link_to 'Edit', edit_enologist_path(enologist) %></td>
+          <td><%= link_to 'Destroy', enologist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
