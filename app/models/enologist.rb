@@ -8,7 +8,7 @@ class Enologist < ApplicationRecord
     has_many :wines, through: :evaluations, dependent: :destroy
 
     #for nested attributes
-    accepts_nested_attributes_for :enologist_magazines, :evaluations, allow_destroy: true, reject_if: :all_blank
+    accepts_nested_attributes_for :enologist_magazines, allow_destroy: true, reject_if: :all_blank
     
     def roles
         role = Array.new
@@ -21,5 +21,9 @@ class Enologist < ApplicationRecord
             role.clear
         end
         return magazine_roles
+    end
+
+    def to_s
+        self.name
     end
 end 

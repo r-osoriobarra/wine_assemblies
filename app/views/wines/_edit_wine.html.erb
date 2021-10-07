@@ -1,0 +1,46 @@
+<%= form_with(model: wine, local: true) do |form| %>
+    <% if wine.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(wine.errors.count, "error") %> prohibited this wine from being saved:</h2>
+
+        <ul>
+        <% wine.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <h4>General information</h4>
+    
+    <div class="form-group">
+        <%= form.label :name, class: 'font-weight-bold' %>
+        <%= form.text_field :name, autofocus: true, class:"form-control"%>
+    </div>
+
+    <h4>Composition</h4>
+
+    <div class="form-group">
+        <%= form.fields_for :blends do |ff|%>
+        <%= render 'blend_fields', f: ff %> <br>
+        <% end %>
+        <div class="links">
+            <%= link_to_add_association 'Add a strain', form, :blends, class: 'font-weight-bold' %>
+        </div>
+    </div>
+    
+    <h4>Score</h4>
+
+    <div class="form-group">
+        <%= form.fields_for :evaluations do |score|%>
+        <%= render 'evaluation_fields', f: score %>
+        <% end %>
+        <div class="links">
+        <%= link_to_add_association 'Add an evaluation', form, :evaluations, class: 'font-weight-bold'%>
+        </div>
+    </div>
+
+    <div class="actions my-5">
+        <%= form.submit :Submit, class: "btn btn-success"%>
+    </div>
+<% end %>

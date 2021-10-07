@@ -41,18 +41,6 @@
     </div>
   </div>
 
-  <h4>Scoring wines</h4>
-
-  <div class="form-group">
-    <%= form.fields_for :evaluations do |score|%>
-      <%= render 'evaluation_fields', f: score %>
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association 'Add an evaluation', form, :evaluations, class: 'font-weight-bold'%>
-    </div>
-  </div>
-
-
   <div class="actions my-5">
     <%= form.submit :Submit, class: "btn btn-success" %>
   </div>

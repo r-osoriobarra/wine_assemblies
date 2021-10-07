@@ -11,6 +11,8 @@
       <th>Nationality</th>
       <th>Participating in</th>
       <th>Role</th>
+      <th>Wines Scored</th>
+      <th>Scores</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -29,6 +31,16 @@
         <td>
           <% enologist.roles.each do |role|%>
             <li><%= role %></li>
+          <% end %>
+        </td>
+        <td>
+          <% enologist.wines.each do |wine| %>
+            <li><%= wine.name %></li>
+          <% end %>
+        </td>
+        <td>
+          <% enologist.evaluations.each do |evaluation| %>
+            <li><%= evaluation.score %></li>
           <% end %>
         </td>
         <% if current_admin.present? %>
