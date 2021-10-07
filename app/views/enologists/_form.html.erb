@@ -33,13 +33,25 @@
   <h4>Working at</h4>
   
   <div class="form-group">
-    <%= form.fields_for :enologist_magazines do |ff|%>
-      <%= render 'enologist_magazine_fields', f: ff %>
+    <%= form.fields_for :enologist_magazines do |work_at|%>
+      <%= render 'enologist_magazine_fields', f: work_at %>
     <% end %>
     <div class="links">
       <%= link_to_add_association 'Add a magazine', form, :enologist_magazines, class: 'font-weight-bold'%>
     </div>
   </div>
+
+  <h4>Scoring wines</h4>
+
+  <div class="form-group">
+    <%= form.fields_for :evaluations do |score|%>
+      <%= render 'evaluation_fields', f: score %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add an evaluation', form, :evaluations, class: 'font-weight-bold'%>
+    </div>
+  </div>
+
 
   <div class="actions my-5">
     <%= form.submit :Submit, class: "btn btn-success" %>

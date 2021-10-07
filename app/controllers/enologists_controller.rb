@@ -14,12 +14,15 @@ class EnologistsController < ApplicationController
   def new
     @enologist = Enologist.new
     @magazines = Magazine.all
+    @wines = Wine.all
     @enologist.enologist_magazines.build
+    @enologist.evaluations.build
   end
 
   # GET /enologists/1/edit
   def edit  
     @magazines = Magazine.all
+    @wines = Wine.all
   end
 
   # POST /enologists or /enologists.json
@@ -78,6 +81,13 @@ class EnologistsController < ApplicationController
           :editor,
           :writer,
           :reviewer, 
+          :_destroy
+        ],
+        evaluations_attributes: 
+        [
+          :id,
+          :wine_id,
+          :score,
           :_destroy
         ]
       )
