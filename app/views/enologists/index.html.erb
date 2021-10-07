@@ -23,11 +23,13 @@
         <td><%= enologist.nationality %></td>
         <td>
           <% enologist.magazines.each do |magazine| %>
-            <li><%= magazine.name %></li>
+            <li><%= magazine.name %></li> 
           <% end %>
         </td>
         <td>
-          <%= enologist.magazine_roles %>
+          <% enologist.roles.each do |role|%>
+            <li><%= role %></li>
+          <% end %>
         </td>
         <td><%= link_to 'Show', enologist %></td>
         <td><%= link_to 'Edit', edit_enologist_path(enologist) %></td>

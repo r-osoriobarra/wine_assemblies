@@ -8,11 +8,18 @@ class Enologist < ApplicationRecord
     has_many :wines, through: :evaluations, dependent: :destroy
 
     #for nested attributes
-    accepts_nested_attributes_for :enologist_magazines, :magazines
-
-    #roles per magazine method
-    def magazine_roles
-        #TODO falta agregar como mostrar los roles por magazine
+    accepts_nested_attributes_for :enologist_magazines
+    
+    def roles
+        role = Array.new
+        magazine_roles = Array.new
+        self.enologist_magazines.each do |work|
+            role << "Editor" if work.editor
+            role << "Writer" if work.writer
+            role << "Reviewer" if work.reviewer
+            magazine_roles << role.join(" / ")
+            role.clear
+        end
+        return magazine_roles
     end
-
 end 

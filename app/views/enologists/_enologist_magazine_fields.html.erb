@@ -1,15 +1,19 @@
-<div class="container mt-4 border">
-    <div class="field">
-        <%= f.label :name, 'Select Magazine: ', class: 'font-weight-bold' %> 
+<div class="my-4 border">
+    <div class="form-group">
+        <%= f.label :name, 'Select magazine: ', class: 'font-weight-bold text-dark' %> 
         <%= f.collection_select :magazine_id, @magazines, :id, :name %>
     </div>
-    <div class="field">
-        <%# <%= f.label :position, 'Position: ', class: 'font-weight-bold' %>
-        <%= f.label :editor, 'Editor' %>
-        <%= f.check_box :editor%>
-        <%= f.label :writer, 'Writer' %>
+
+    <div class="form-check">
+        <%= f.label :editor %>
+        <%= f.check_box :editor %>
+    </div>
+    <div class="form-check">
+        <%= f.label :writer %>
         <%= f.check_box :writer %>
-        <%= f.label :reviewer, 'Reviewer' %>
+    </div>
+    <div class="form-check">
+        <%= f.label :reviewer %>
         <%= f.check_box :reviewer %>
     </div>
 </div>

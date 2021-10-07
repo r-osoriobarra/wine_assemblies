@@ -18,7 +18,7 @@ class EnologistsController < ApplicationController
   end
 
   # GET /enologists/1/edit
-  def edit
+  def edit  
     @magazines = Magazine.all
   end
 
@@ -71,11 +71,12 @@ class EnologistsController < ApplicationController
         :name, 
         :age, 
         :nationality, 
-        enologist_magazines_attributes: [
+        enologist_magazines_attributes: 
+        [
           :id, 
-          :magazine_id, 
-          :editor, 
-          :writer, 
+          :magazine_id,
+          :editor,
+          :writer,
           :reviewer, 
           :_destroy
         ]
