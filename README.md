@@ -8,4 +8,8 @@ admin credentials:
     user: peter@mail.com 
     password: "123123"
 
+user test credentials:
+    Choose in navbar "Log in" to enter as test user
+    user: test@mail.com 
+    password: "123123"
 ```
