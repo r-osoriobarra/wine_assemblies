@@ -20,7 +20,7 @@ class Wine < ApplicationRecord
     #enologist evaluations
     def sorted_scores
         s_array = Array.new
-        self.evaluations.each {|evaluation| s_array << "#{evaluation.score} by #{evaluation.enologist}"}
+        self.evaluations.each {|evaluation| s_array << "#{evaluation.score} pts by #{evaluation.enologist}"}
         sorted_scores = s_array.sort
     end
 end

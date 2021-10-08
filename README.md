@@ -1,3 +1,3 @@
-# Wine Assemglies - Part 1
+# Wine Assemglies - Part 2
 
 heroku demo: https://wine-assemblies.herokuapp.com/

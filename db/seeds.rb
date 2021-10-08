@@ -11,6 +11,7 @@ Strain.destroy_all
 User.destroy_all
 Admin.destroy_all
 Magazine.destroy_all
+Enologist.destroy_all
 
 #Users
 User.create(email: 'test@mail.com', password: '123123', password_confirmation: '123123')
@@ -29,3 +30,8 @@ Strain.create(name: 'Pinot Noir')
 Magazine.create(name: 'La petaquita')
 Magazine.create(name: 'Wines&Cheese')
 Magazine.create(name: 'Combinado Internacional')
+
+#Enologists
+Enologist.create(name: 'Juan Manriquez', age: 21, nationality: 'Chile')
+Enologist.create(name: 'Antonio Margarette', age: 80, nationality: 'Italia')
+Enologist.create(name: 'Patrick Viera', age: 56, nationality: 'Francia')
