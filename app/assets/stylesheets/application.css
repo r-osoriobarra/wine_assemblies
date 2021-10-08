@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+.bg-wine {
+    background-color: #3c1361;
+}
+
+.btn-wine {
+    background-color: white;
+    border-color: #3c1361;
+    font-weight: bold;
+    color:#3c1361;
+}

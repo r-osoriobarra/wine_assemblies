@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<h1>Enologists</h1>
+
+<%= link_to 'New Enologist', new_enologist_path, class:"btn btn-wine mb-4" if current_admin %>
+
+<table class="table"> 
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Nationality</th>
+      <th>Participating in</th>
+      <th>Role</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @enologists.each do |enologist| %>
+      <tr>
+        <td><%= enologist.name %></td>
+        <td><%= enologist.age %></td>
+        <td><%= enologist.nationality %></td>
+        <td>
+          <% enologist.magazines.each do |magazine| %>
+            <li><%= magazine.name %></li> 
+          <% end %>
+        </td>
+        <td>
+          <% enologist.roles.each do |role|%>
+            <li><%= role %></li>
+          <% end %>
+        </td>
+        <% if current_admin.present? %>
+          <td><%= link_to 'Show', enologist %></td>
+          <td><%= link_to 'Edit', edit_enologist_path(enologist) %></td>
+          <td><%= link_to 'Destroy', enologist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to '<< Back', wines_path %>

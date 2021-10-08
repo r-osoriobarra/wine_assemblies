@@ -1,0 +1,10 @@
+<div class="my-4 border">
+    <div class="form-group">
+        <%= f.label :name, 'Select Enologist: ', class: 'font-weight-bold text-dark' %> 
+        <%= f.collection_select :enologist_id, @enologists, :id, :name %>
+    </div>
+    <div class="form-group">
+        <%= f.label :name, 'Select wine: ', class: 'font-weight-bold text-dark' %> 
+        <%= f.number_field :score, in: 0..10, step: 1, placeholder: '0 to 10 scale' %>
+    </div>
+</div>

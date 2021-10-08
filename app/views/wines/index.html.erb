@@ -2,11 +2,18 @@
 
 <h1>Peter Wine List</h1>
 
+<% if current_admin %>
+  <%= link_to 'New Wine', new_wine_path, class:"btn btn-wine mb-4" %>
+  <%= link_to 'Strain list', strains_path, class:"btn btn-wine mb-4" %>
+  <%= link_to 'Enologist list', enologists_path, class:"btn btn-wine mb-4" %>
+<% end %>
+
 <table class="table">
   <thead>
     <tr>
       <th>Wine</th>
       <th>Strains</th>
+      <th>Scores</th>
       <th colspan="10"></th>
     </tr>
   </thead>
@@ -16,16 +23,20 @@
       <tr>
         <td><%= wine.name %></td>
         <td>
-          <ul>
-            <% wine.sorted_strains.each do |strain| %>
-              <li><%= strain %></li>
-            <% end %>
-          </ul>
+          <% wine.sorted_strains.each do |strain| %>
+            <li><%= strain %></li>
+          <% end %>
         </td>
-
-        <td><%= link_to 'Show', wine %></td>
-        <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
-        <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% wine.sorted_scores.each do |score| %>
+            <li><%= score %></li>
+          <% end %>
+        </td>
+        <% if current_admin.present? %>
+          <td><%= link_to 'Show', wine %></td>
+          <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
+          <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -33,4 +44,5 @@
 
 <br>
 
-<%= link_to 'New Wine', new_wine_path, class:"btn btn-primary" %>
+
+

@@ -1,5 +1,4 @@
-# README
+# Wine Assemglies - Part 2
 
-# Wine Assemblies - Part 1
+heroku demo: https://wine-assemblies2.herokuapp.com/
 
-heroku demo: https://wine-assemblies.herokuapp.com/
